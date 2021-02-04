@@ -10,6 +10,7 @@ router.get('/', async (request, response) => {
     const pageSize = request.query.pageSize ? parseInt(request.query.pageSize as string) : 10;
 
     const postList = await getPageOfPosts(page, pageSize);
+
     return response.render('post_list', postList);
 });
 
@@ -38,6 +39,7 @@ router.post('/:postId/like/', async (request, response) => {
     const returnUrl = request.params?.returnUrl;
 
     await likePost(userId, postId);
+
     response.redirect(returnUrl || "/posts/");
 });
 

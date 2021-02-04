@@ -1,1 +1,37 @@
-/* Add your styles here. */
+/* Style for computer = base */
+header{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:whitesmoke;
+    font-weight: bold;
+    font-size: larger;
+    width: 20px;
+}
+
+h1, h2 {
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+h2 {
+    text-align: center;
+}
+
+
+/*Style for Phones */
+
+@media only screen and (max width: 500){
+    
+    h1, h2{
+        font-size: 1em;
+    }
+
+    body{
+        
+    }
+    
+}
+
+/*Style for iPads */
+@media only screen and (max width: 1200){
+
+}

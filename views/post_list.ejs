@@ -1,15 +1,39 @@
 <html lang="en-gb">
 <%- include('_head') -%>
 <%- include('_header') -%>
+
+<link rel="stylesheet" href="css/posts.css">
+
 <body>
-<h1>Posts</h1>
-<ol>
-    <% results.forEach(function(post) {%>
-        <li>
-            <%= post.message %>
-        </li>
-    <% }); %>
-</ol>
+<h1>Welcome to MyFace!</h1>
+<h2>Posts</h2>
+<p class="createPostButton"><a href="/posts/create/">+ Create a post</a></p>
+<div class ="postsContent">
+    <ol></ol>
+        <% results.forEach(function(post) {%>
+            <li class="postItem">
+                <h2><%= post.message %></h2>
+                <h4>Created by <%= post.postedBy.name%> at <%=post.createdAt%></h4>
+                <figure class="image-Container">
+                    <img src="<%=post.imageUrl%>">
+                    <figcaption class="likDis">Liked by: <%=post.likedBy.length%> people <br> Disliked by: <%=post.dislikedBy.length%> people</figcaption>
+                </figure>
+            </li>
+        <% }); %>
+    </ol>
+</div>
 </body>
+<footer>
+    <%if (previous) { %>
+        <a href="<%= previous %>">Previous</a>
+    <% } %>
+
+    <%if (next) { %>
+        <a href="<%= next %>">Next</a>
+    <% } %>
+    <br><br>
+    <a href="/">Back to Home Page</a>
+</footer>
 <%- include('_footer') -%>
 </html>
+
